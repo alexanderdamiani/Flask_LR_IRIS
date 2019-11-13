@@ -1,6 +1,9 @@
 FROM python:3.7.5
 
+# ************************* #
+## change to port 80 when running on AWS EC2 ##
 EXPOSE 5000
+# ************************* #
 
 RUN mkdir -p /app
 
