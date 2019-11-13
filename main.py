@@ -25,11 +25,11 @@ def predict():
 
     return render_template('index.html', prediction_text='IRIS class should be : {}'.format(output))
 
-@app.route('/results',methods=['POST'])
+@app.route('/results', methods=['POST'])
 def results():
     data = request.get_json(force=True)
     prediction = model.predict([np.array(list(data.values()))])
-    output = prediction[0]
+    output = str(prediction[0])
 
     return jsonify(output)
 

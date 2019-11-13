@@ -10,7 +10,8 @@ COPY static /app/static
 COPY templates /app/templates
 # ************************* #
 
-COPY app.py /app
+COPY main.py /app
+COPY test_app.py /app
 COPY model.sav /app
 COPY requirements.txt /app
 
@@ -18,4 +19,4 @@ WORKDIR /app
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-ENTRYPOINT ["python", "app.py"]
+ENTRYPOINT pytest -v && python /app/main.py
